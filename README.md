@@ -50,5 +50,5 @@
   - Github : [Source url](https://github.com/heom/MSA-Ecommerce-CatalogService)
 
 ## 나중에 추가할 작업 내용
-- 각 서비스 인스턴스, 로드 밸런싱할 때 DB 동기화 미완 <= DB 앞에 Kafka 사용할 예정
-- 현재는 이벤트 드리븐 형식이 아닌, OpenFeign 활용한 단순 msa 구조 <= Api Gateway 뒤에 Kafka 사용할 예정
+- 각 서비스 인스턴스, 로드 밸런싱할 때 DB 동기화 미완 <= DB 앞에 Kafka(DB MQ) 사용할 예정
+- 현재는 이벤트 드리븐 형식이 아닌, OpenFeign 활용한 단순 msa 구조 <= Api Gateway 뒤에 Kafka(Event MQ) 사용할 예정
