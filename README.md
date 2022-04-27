@@ -1,5 +1,6 @@
 # MSA Ecommerce
 - [MSA Ecommerce] Project Root
+![main](https://user-images.githubusercontent.com/42602972/165476161-4c520bd6-0f48-4a85-90ee-65cfe7be9861.png)
 
 ## 프로젝트 구성
 - Java 8
