@@ -44,10 +44,10 @@
 ------------
 - **[User-Service]**
   - Github : [Source url](https://github.com/heom/MSA-Ecommerce-UserService)
-  ------------
+------------
 - **[Order-Service]**
   - Github : [Source url](https://github.com/heom/MSA-Ecommerce-OrderService)
-  ------------
+------------
 - **[Catalog-Service]**
   - Github : [Source url](https://github.com/heom/MSA-Ecommerce-CatalogService)
 
