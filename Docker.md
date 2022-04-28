@@ -1,0 +1,77 @@
+# Docker
+- [MSA Ecommerce] 적용하면서 공부한 내용 정리
+
+## 기본 명령어 
+- **[설치된 도커 정보]**
+	- docker info
+------------
+- **[이미지 리스트]**
+	- docker image ls
+------------
+- **[이미지 리스트 검색(window)]**
+	- docker images | findstr ${이미지명}
+------------
+- **[이미지 삭제]**
+	- docker rmi ${이미지명}:${TAG}
+------------		
+- **[컨테이너 리스트]**
+	- docker container ls
+------------
+- **[컨테이너 리스트(종료포함)]**
+	- docker container ls -a
+------------
+- **[컨테이너 설치 및 실행]**
+	- docker [create/start/run] [OPTIONS] IMAGE[:TAG|DIGEST][COMMAND][ARG]
+		- OPTIONS
+			- -d : detached mode 흔히 말하는 백그라운드 모드
+			- -p : 호스트와 컨테이너의 포트를 연결(포워딩)
+			- -v : 호스트와 컨테이너의 디렉토리를 연결(마운트)
+			- -e : 컨테이너 내에서 사용할 환경변수 설정
+			- --name : 컨테이너 이름 설정
+			- --rm : 프로세스 종료시 컨테이너 자동 제거
+			- -it : -i와 -t를 동시에 사용한 것으로 터미널 입력을 위한 옵션
+			- --link : 컨테이너 연결[컨테이너명:별칭]
+		- ex)
+			- docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq --restart=unless-stopped rabbitmq:management
+			- docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql mysql:5.7
+------------
+- **[컨테이너 프로세스 확인]**
+	- docker ps -a
+------------
+- **[컨테이너 시작]**
+	- docker start ${컨테이너명|컨테이너아이디}	
+------------
+- **[컨테이너 중지]**
+	- docker stop ${컨테이너명|컨테이너아이디}
+------------
+- **[컨테이너 삭제]**
+	- docker container rm ${컨테이너명|컨테이너아이디}
+------------
+- **[컨테이너 로그]**
+	- docker logs ${컨테이너명|컨테이너아이디}
+------------
+- **[컨테이너 명령어 전달]**
+	- docker exec -it ${컨테이너명|컨테이너아이디} ${명령어}
+		- ex)
+			- docker exec -it mysql bash
+
+## 이미지 관리 및 Public registry 업로드
+- **[Public registry URL]**
+	- [https://hub.docker.com/](https://hub.docker.com/)
+------------
+- **[각 서비스 Docker 이미지 만들기]**	
+	- 프로젝트 Root 경로에 Dockerfile 만들기
+		- [Dockerfile 참조](https://hub.docker.com/)
+	- 패키지화(window)
+		- mvnw clean compile package -DskipTests=true
+------------
+- **[이미지 생성]**	
+	- docker build -t ${회원아이디}/${name}:${TAG} ${경로}
+		- ex)
+			- docker build -t ccs159/user-service:1.0 .
+------------
+- **[이미지 업로드]**	
+	- docker push ${회원아이디}/${name}:${TAG}
+------------
+- **[이미지 다운로드]**	
+	- docker pull ${회원아이디}/${name}:${TAG}
