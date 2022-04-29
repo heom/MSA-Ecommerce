@@ -75,7 +75,7 @@
 ------------
 - **[각 서비스 Docker 이미지 만들기]**	
 	- 프로젝트 Root 경로에 Dockerfile 만들기
-		- [Dockerfile 참조](https://github.com/heom/MSA-Ecommerce/blob/master/Dockerfile)
+		- [Dockerfile 참조](https://github.com/heom/MSA-Ecommerce/blob/master/docker%20study/Dockerfile)
 	- 패키지화(window)
 		- mvnw clean compile package -DskipTests=true
 ------------
