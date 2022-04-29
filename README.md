@@ -15,12 +15,19 @@
   - Gateway 3.1.1
   - Bus-amqp(RabbitMq) 3.1.1
   - Openfeign 3.1.1 
-- RabbitMQ 3.9.15
-- H2(Embedded) 1.4.200
+- H2(Embedded) 1.4.200  
+- Docker <= 현재 진행중
+	- RabbitMQ 3.9.15 (완료)
+	- MariaDB (완료)
+	- Kafka (완료)
+	- Zipkin
+	- Prometheus
+	- Grafana
 
 ## 구동방법
-- Docker RabbitMQ 설치
-  - docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 --restart=unless-stopped rabbitmq:management
+- ~~Docker RabbitMQ 설치~~
+  - ~~docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 --restart=unless-stopped rabbitmq:management~~
+  - 아래 '나주엥 추가할 작업 내용' 3번 진행 중
 - Confing 로컬 저장소 생성      
   - **[Config-Server]** [참조](https://github.com/heom/MSA-Ecommerce-ConfigServer)
 - 서비스 구동(아래 순서대로)
