@@ -17,7 +17,7 @@
  - **[Kafka]**
 	- **[Git hub clone url](https://github.com/wurstmeister/kafka-docker)**
 	- **[kafka 다운로드 필요 <= 다운로드 경로에서 작업 필요]**
-		- [docker-files/kafka](ssss)
+		- [docker-files/kafka](https://github.com/heom/MSA-Ecommerce/tree/master/docker-files/kafka)
 	- **[중요]docker-compose-single-broker.yml**	
 	- docker-compose -f docker-compose-single-broker.yml up -d
 ------------
