@@ -54,6 +54,20 @@
 	- docker exec -it ${컨테이너명|컨테이너아이디} ${명령어}
 		- ex)
 			- docker exec -it mysql bash
+-----------
+- **[전체 컨테이너에서 정지된 컨테이너의 불필요한 리소스 제거]**
+	- docker system prune
+-----------
+- **[네트워크 리스트]**
+	- docker network ls
+-----------
+- **[사용자 지정 네트워크 만들기]**
+	- docker network create --gateway ${게이트웨이IP} --subnet ${서브넷IP} ${네트워크명}
+		- ex)
+			- docker network create --gateway 172.18.0.1 --subnet 172.18.0.0/16 ecommerce-network
+-----------
+- **[네트워크 상세정보]**
+	- docker network inspect ${네트워크명}
 
 ## 이미지 관리 및 Public registry 업로드
 - **[Public registry URL]**
