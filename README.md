@@ -17,9 +17,9 @@
   - Openfeign 3.1.1 
 - H2(Embedded) 1.4.200  
 - Docker <= 현재 진행중
-	- RabbitMQ 3.9.15 (완료)
+	- RabbitMQ (완료)
 	- MariaDB (완료)
-	- Kafka (완료)
+	- Kafka(+Zookeper) (완료)
 	- Zipkin
 	- Prometheus
 	- Grafana
