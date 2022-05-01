@@ -9,6 +9,7 @@
 - Spring Security 2.6.4
 - JWT jwtt 0.9.1
 - Junit 5
+- Resilience4j
 - Spring Cloud 2021.0.1
   - Eureka 3.1.1    
   - Config 3.1.1
@@ -18,18 +19,22 @@
 - H2(Embedded) 1.4.200  
 - Docker <= 현재 진행중
 	- RabbitMQ (완료)
-	- ~~ MariaDB (완료) ~~
 	- Kafka(+Zookeper) (완료)
 	- Zipkin
 	- Prometheus
 	- Grafana
 
 ## 구동방법
-- ~~Docker RabbitMQ 설치~~
-  - ~~docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 --restart=unless-stopped rabbitmq:management~~
-  - 아래 '나중에 추가할 작업 내용' 3번 진행 중
-- Confing 로컬 저장소 생성      
+- Confing 로컬/원격 저장소 생성      
   - **[Config-Server]** [참조](https://github.com/heom/MSA-Ecommerce-ConfigServer)
+- Docker 프로젝트 환경 Docker Container 실행(아래 순서대로)
+  - **[Docker 프로젝트 환경 구성방법]** [참조](https://github.com/heom/MSA-Ecommerce/blob/master/Docker%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%99%98%EA%B2%BD%20%EA%B5%AC%EC%84%B1%EB%B0%A9%EB%B2%95.md)
+	- Network 설정
+	- RabbitMQ
+	- Kafka(+Zookeper)
+	- Zipkin
+	- Monitoring
+	- DeployedService
 - 서비스 구동(아래 순서대로)
   - Config-Server
   - Discovery-Service
@@ -58,8 +63,11 @@
 - **[Catalog-Service]**
   - Github : [Source url](https://github.com/heom/MSA-Ecommerce-CatalogService)
 
-## 나중에 추가할 작업 내용
-- 1. 각 서비스 인스턴스, 로드 밸런싱할 때 DB 동기화 미완 <= DB 앞에 Kafka(DB MQ) 사용할 예정
-- 2. 장애처리/모니터링 기능 추가
-- 3. CI/CD 기능 추가 <= Docker Container
-- 4. 현재는 이벤트 드리븐 형식이 아닌, OpenFeign 활용한 가장 단순 msa 구조 <= Api Gateway 뒤에 Kafka(Event MQ) 사용할 예정
+## 추가 작업 중인 내용
+- 1. 서비스 인스턴스간 MQ(Kafka) 적용 - **완료**
+- 2. 서비스 인스턴스간 조회 OpenFeign 장애처리 Resilience4j 적용 - **완료**
+- 3. 서비스 인스턴스간 분산 추적을 위한 Zipkin 적용
+- 4. 서비스 모니터링을 위한 Prometheus/Grafana 적용
+- 5. Local -> Docker 환경 변경
+- 6. 현재 서비스 인스턴스간 트랜젝션 처리기능 없음, 차후 이벤트 드리븐 형식 또는 Saga Pattern 등 공부하여 추가 적용하기!
+
