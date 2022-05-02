@@ -24,9 +24,14 @@
 - **[Zipkin]**
 	- docker run -d --network ecommerce-network -p 9411:9411 --name zipkin openzipkin/zipkin 
 ------------
-- **[Monitoring]**
+- **[Prometheus]**
+	- **[설정파일 다운로드 필요]**
+		- [docker-files/prometheus/prometheus.yml](https://github.com/heom/MSA-Ecommerce/tree/master/docker-files/prometheus/prometheus.yml)
+	- docker run -d --network ecommerce-network -p 9090:9090 -v ${다운로드 경로}/prometheus.yml:/etc/prometheus/prometheus.yml --name prometheus prom/prometheus 
 ------------
-- **[DeployedService]**
+- **[Grafana]**
+	- docker run -d --network ecommerce-network -p 3000:3000 --name grafana grafana/grafana 
+
 
 ## 프로젝트 소스 Docker Container 실행
 - **[ConfigServer]**
