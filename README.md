@@ -72,5 +72,7 @@
 - 3. 서비스 인스턴스간 분산 추적을 위한 Zipkin 적용 - **완료**
 - 4. 서비스 모니터링을 위한 Prometheus/Grafana 적용 - **완료**
 - 5. Local -> Docker 환경 변경 - **완료**
-- 6. 현재 서비스 인스턴스간 트랜젝션 처리기능 없음, 차후 이벤트 드리븐 형식 또는 Saga Pattern 등 공부하여 추가 적용하기!
+- 6. DevOps를 위한 CI/CD 구축
+- 7. Microservice Architecture와 Patterns
+- 8. WebFlux를 이용한 Reactive RESTful API 
 
