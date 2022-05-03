@@ -1,6 +1,6 @@
 # MSA Ecommerce
 - [MSA Ecommerce] Project Root
-![main](https://user-images.githubusercontent.com/42602972/165476161-4c520bd6-0f48-4a85-90ee-65cfe7be9861.png)
+![UpdateBase](https://user-images.githubusercontent.com/42602972/166440790-87bf2d23-4669-481a-b3e7-08b0246cf26b.png)
 
 ## 프로젝트 구성
 - Java 8
@@ -20,7 +20,7 @@
   - Sleuth 3.1.1
   - Zipkin 2.2.3 
 - H2(Embedded) 1.4.200  
-- Docker <= 현재 진행중
+- Docker
 	- RabbitMQ
 	- Kafka(+Zookeper)
 	- Zipkin
@@ -43,6 +43,7 @@
   - Discovery-Service
   - API-Gateway
   - User-Service / Order-Service / Catalog-Service
+![Dockers](https://user-images.githubusercontent.com/42602972/166441188-d6e6ddf3-c77f-4757-9b64-05d24af51b5a.png)
 
 ## 프로젝트 서비스 구성
 - **[Config-Server]**
@@ -65,6 +66,14 @@
 ------------
 - **[Catalog-Service]**
   - Github : [Source url](https://github.com/heom/MSA-Ecommerce-CatalogService)
+
+## URL
+- **[Zipkin]**
+  - [DashBoard Link](http://localhost:9411/zipkin/)
+- **[Prometheus]**
+  - [DashBoard Link](http://localhost:9090/)
+- **[Grafana]**
+  - [DashBoard Link](http://localhost:3000/login)
 
 ## 추가 작업 중인 내용
 - 1. 서비스 인스턴스간 MQ(Kafka) 적용 - **완료**
