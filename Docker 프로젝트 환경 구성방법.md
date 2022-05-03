@@ -19,7 +19,7 @@
 	- **[kafka 다운로드 필요 <= 다운로드 경로에서 작업 필요]**
 		- [docker-files/kafka](https://github.com/heom/MSA-Ecommerce/tree/master/docker-files/kafka)
 	- **[중요]docker-compose-single-broker.yml**	
-	- docker-compose -f docker-compose-single-broker.yml up -d
+	- docker-compose -f docker-compose-single-broker-docker.yml up -d
 ------------
 - **[Zipkin]**
 	- docker run -d --network ecommerce-network -p 9411:9411 --name zipkin openzipkin/zipkin 
@@ -27,7 +27,7 @@
 - **[Prometheus]**
 	- **[설정파일 다운로드 필요]**
 		- [docker-files/prometheus/prometheus.yml](https://github.com/heom/MSA-Ecommerce/tree/master/docker-files/prometheus/prometheus.yml)
-	- docker run -d --network ecommerce-network -p 9090:9090 -v ${다운로드 경로}/prometheus.yml:/etc/prometheus/prometheus.yml --name prometheus prom/prometheus 
+	- docker run -d --network ecommerce-network -p 9090:9090 -v ${다운로드 경로}/prometheus.yml:/etc/prometheus/prometheus-docker.yml --name prometheus prom/prometheus 
 ------------
 - **[Grafana]**
 	- docker run -d --network ecommerce-network -p 3000:3000 --name grafana grafana/grafana 
@@ -53,8 +53,19 @@
 	- docker run -d -p 8000:8000 --network ecommerce-network -e "spring.cloud.config.uri=http://config-service:8888" -e "spring.rabbitmq.host=rabbitmq" -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" --name apigateway-service ccs159/apigateway-service:1.0
 ------------
 - **[UserService]**
+	- **[프로젝트 Root에 Dockerfile 존재 <= 프로젝트 Root에서 작업 필요]**
+	- docker build -t ccs159/user-service:1.0 .
+	- docker push ccs159/user-service:1.0
+	- docker run -d --network ecommerce-network -e "spring.cloud.config.uri=http://config-service:8888" -e "spring.rabbitmq.host=rabbitmq" -e "spring.zipkin.base-url=http://zipkin:9411" -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" -e "logging.file=/api-logs/users-ws.log" --name user-service ccs159/user-service:1.0
 ------------
 - **[OrderService]**
+	- **[프로젝트 Root에 Dockerfile 존재 <= 프로젝트 Root에서 작업 필요]**
+	- docker build -t ccs159/order-service:1.0 .
+	- docker push ccs159/order-service:1.0
+	- docker run -d --network ecommerce-network -e "spring.cloud.config.uri=http://config-service:8888" -e "spring.rabbitmq.host=rabbitmq" -e "spring.zipkin.base-url=http://zipkin:9411" -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" -e "my-kafka.servers=172.18.0.101:9092" -e "logging.file=/api-logs/orders-ws.log" --name order-service ccs159/order-service:1.0
 ------------
 - **[CatalogService]**
-------------
+	- **[프로젝트 Root에 Dockerfile 존재 <= 프로젝트 Root에서 작업 필요]**
+	- docker build -t ccs159/catalog-service:1.0 .
+	- docker push ccs159/catalog-service:1.0
+	- docker run -d --network ecommerce-network -e "spring.cloud.config.uri=http://config-service:8888" -e "spring.rabbitmq.host=rabbitmq" -e "eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/" -e "my-kafka.servers=172.18.0.101:9092" -e "logging.file=/api-logs/catalogs-ws.log" --name catalog-service ccs159/catalog-service:1.0

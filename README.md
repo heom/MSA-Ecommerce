@@ -21,9 +21,9 @@
   - Zipkin 2.2.3 
 - H2(Embedded) 1.4.200  
 - Docker <= 현재 진행중
-	- RabbitMQ (완료)
-	- Kafka(+Zookeper) (완료)
-	- Zipkin (완료)
+	- RabbitMQ
+	- Kafka(+Zookeper)
+	- Zipkin
 	- Prometheus
 	- Grafana
 
@@ -36,8 +36,8 @@
 	- RabbitMQ
 	- Kafka(+Zookeper)
 	- Zipkin
-	- Monitoring
-	- DeployedService
+	- Prometheus
+	- Grafana
 - 서비스 구동(아래 순서대로)
   - Config-Server
   - Discovery-Service
@@ -70,7 +70,7 @@
 - 1. 서비스 인스턴스간 MQ(Kafka) 적용 - **완료**
 - 2. 서비스 인스턴스간 조회 OpenFeign 장애처리 Resilience4j 적용 - **완료**
 - 3. 서비스 인스턴스간 분산 추적을 위한 Zipkin 적용 - **완료**
-- 4. 서비스 모니터링을 위한 Prometheus/Grafana 적용
-- 5. Local -> Docker 환경 변경
+- 4. 서비스 모니터링을 위한 Prometheus/Grafana 적용 - **완료**
+- 5. Local -> Docker 환경 변경 - **완료**
 - 6. 현재 서비스 인스턴스간 트랜젝션 처리기능 없음, 차후 이벤트 드리븐 형식 또는 Saga Pattern 등 공부하여 추가 적용하기!
 
